@@ -43,3 +43,8 @@ variable "pub-subnet-03-cidr" {
   default     = "10.0.6.0/24"
   description = "Pub Subnet 03 CIDR"
 }
+
+variable "oidc_thumbprint_list" {
+  type    = list(any)
+  default = []
+}

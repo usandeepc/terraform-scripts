@@ -5,7 +5,7 @@ resource "aws_eks_node_group" "nodegroup" {
   subnet_ids      = [aws_subnet.pvt-subnet-01.id, aws_subnet.pvt-subnet-02.id, aws_subnet.pvt-subnet-03.id]
 
   scaling_config {
-    desired_size = 2
+    desired_size = 1
     max_size     = 2
     min_size     = 1
   }
