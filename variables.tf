@@ -48,3 +48,13 @@ variable "oidc_thumbprint_list" {
   type    = list(any)
   default = []
 }
+
+variable "db_username" {
+  default = "admin"
+
+}
+
+variable "db_password" {
+  default = "password"
+
+}

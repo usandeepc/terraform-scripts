@@ -14,15 +14,15 @@ resource "aws_eks_cluster" "aws_eks_cluster" {
 }
 
 data "tls_certificate" "eks_oidc_cert" {
-  url = aws_eks_cluster.aws_eks_cluster.identity.0.oidc.0.issuer
+  url        = aws_eks_cluster.aws_eks_cluster.identity.0.oidc.0.issuer
   depends_on = [aws_eks_cluster.aws_eks_cluster]
 }
 
 resource "aws_iam_openid_connect_provider" "cluster" {
-  client_id_list = ["sts.amazonaws.com"]
+  client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = concat([data.tls_certificate.eks_oidc_cert.certificates.0.sha1_fingerprint], var.oidc_thumbprint_list)
-  url = aws_eks_cluster.aws_eks_cluster.identity.0.oidc.0.issuer
-  depends_on = [data.tls_certificate.eks_oidc_cert]
+  url             = aws_eks_cluster.aws_eks_cluster.identity.0.oidc.0.issuer
+  depends_on      = [data.tls_certificate.eks_oidc_cert]
   tags = {
     Name = "${var.tf_run_name}-eks-cluster-oidc-provider"
   }

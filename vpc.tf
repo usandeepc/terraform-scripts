@@ -14,7 +14,7 @@ resource "aws_subnet" "pvt-subnet-01" {
   cidr_block        = var.pvt-subnet-01-cidr
   availability_zone = "${var.region}a"
   vpc_id            = aws_vpc.main.id
-  tags = {  
+  tags = {
     "Name"                            = "${var.tf_run_name}-pvt-subnet-01"
     "kubernetes.io/role/internal-elb" = 1
   }
