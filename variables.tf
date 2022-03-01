@@ -58,3 +58,18 @@ variable "db_password" {
   default = "password"
 
 }
+
+
+#######LoadBalancer Controller Vars
+
+variable "aws_iam_path_prefix" {
+  description = "Prefix to be used for all AWS IAM objects."
+  type        = string
+  default     = ""
+}
+
+variable "k8s_namespace" {
+  description = "Namespace to which LoadBalancer controller should be created"
+  type = string
+  default = "kube-system"
+}
