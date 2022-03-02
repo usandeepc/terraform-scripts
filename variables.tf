@@ -70,6 +70,6 @@ variable "aws_iam_path_prefix" {
 
 variable "k8s_namespace" {
   description = "Namespace to which LoadBalancer controller should be created"
-  type = string
-  default = "kube-system"
+  type        = string
+  default     = "kube-system"
 }
